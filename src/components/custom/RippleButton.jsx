@@ -1,20 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import useObserver from "@hooks/useObserver";
 
-type Props = {
-    color?: string,
-    yPlus?: number,
-    xPlus?: number,
-    onClick?: () => void,
-    radii?: number | string,
-    className?: string,
-    children: React.ReactNode,
-    style?: any,
-    parentClassName?: string
-}
-
-export default function RippleButton({color="var(--rp)", yPlus=0, xPlus=0, onClick, radii=0, className, children, style, parentClassName}: Props){
-    const ref = useRef<HTMLDivElement | null>(null);
+export default function RippleButton({color="var(--rp)", yPlus=0, xPlus=0, onClick, radii=0, className, children, style, parentClassName}){
+    const ref = useRef(null);
     const {width, height} = useObserver({ref});
     const [animate, setAnimate] = useState(false);
 

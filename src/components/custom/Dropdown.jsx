@@ -1,28 +1,21 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import useObserver from "@hooks/useObserver";
 
-type Props = {
-    Trigger: (...args: any) => React.ReactNode,
-    className?: string,
-    parentClassName?: string,
-    children: React.ReactNode
-}
-
-export default function Dropdown({Trigger, className, parentClassName, children}: Props){
+export default function Dropdown({Trigger, className, parentClassName, children}){
     
     const [show, setShow] = useState(false);
-    const triggerRef = useRef<HTMLDivElement | null>(null);
-    const childrenRef = useRef<HTMLDivElement | null>(null);
+    const triggerRef = useRef(null);
+    const childrenRef = useRef(null);
     const [contentHeight, setContentHeight] = useState(0);
     const {height: triggerHeight} = useObserver({ref: triggerRef})
-    const showRef = useRef<boolean>(false);
+    const showRef = useRef(false);
 
     useEffect(() => {
         showRef.current = show;
     }, [show]);
 
     useEffect(() => {
-        const onClick = (e: any) => {
+        const onClick = (e) => {
             e.stopPropagation();
             if(showRef.current){
                 setShow(false);

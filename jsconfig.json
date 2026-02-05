@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@ui/*": ["src/components/ui/*"],
+      "@custom/*": ["src/components/custom/*"],
+      "@section/*": ["src/components/section/*"],
+      "@store/*": ["src/store/*"],
+      "@data/*": ["src/data/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
+    }
+  },
+  "exclude": ["node_modules"]
+}

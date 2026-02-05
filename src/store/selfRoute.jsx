@@ -1,12 +1,12 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const selfRoute = createSlice({
     name: "selfRoute",
     initialState: {
-        routes: ["home"] as string[]
+        routes: ["home"] 
     },
     reducers: {
-        goRoute: (state, action: PayloadAction<string>) => {
+        goRoute: (state, action) => {
             const lastRouteSame = state.routes[state.routes.length - 1];
             if(lastRouteSame  && lastRouteSame === action.payload) return;
 

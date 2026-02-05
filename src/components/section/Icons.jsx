@@ -1,13 +1,7 @@
 import { useMemo, useState } from "react";
 
-type Props = {
-    name: string,
-    color: string,
-    size: number
-}
 
-
-export default function Icons({name, size, color }: Props){
+export default function Icons({name, size, color }){
     const [Icon, setIcon] = useState({
         sidebar: SidebarIcon,
         dashboard: DashboardIcon,
@@ -17,11 +11,16 @@ export default function Icons({name, size, color }: Props){
         report: ReportIcon,
         userRole: UserRole,
         search: SearchIcon,
-        bell: BellIcon
-    }) as any;
+        bell: BellIcon,
+        folder: Folder,
+        folderCheck: FolderCheck,
+        docHeart: DocumentHeart,
+        docCheck: DocumentCheck,
+        docArrow: DocumentArrow
+    });
 
-    const GetIcon: React.ReactNode | null = useMemo(() => {
-      const Sp = Icon[name] as any;
+    const GetIcon = useMemo(() => {
+      const Sp = Icon[name];
       return <Sp color={color} size={size} />
     }, [name, color]);
 
@@ -32,7 +31,7 @@ export default function Icons({name, size, color }: Props){
     ); 
 }
 
-function SidebarIcon({color, size}: Partial<Props>){
+function SidebarIcon({color, size}){
     return(
         <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path 
@@ -43,7 +42,7 @@ function SidebarIcon({color, size}: Partial<Props>){
     )
 }
 
-function DashboardIcon({color, size}: Partial<Props>){
+function DashboardIcon({color, size}){
     return(
         <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 14.6667L6.00133 11.9987C6.00133 11.378 6.00133 11.068 6.10333 10.8233C6.17034 10.6615 6.2686 10.5144 6.39248 10.3905C6.51637 10.2666 6.66345 10.1683 6.82533 10.1013C7.07 10 7.38 10 8 10C8.62 10 8.93067 10 9.176 10.1013C9.33788 10.1683 9.48497 10.2666 9.60885 10.3905C9.73274 10.5144 9.83099 10.6615 9.898 10.8233C10 11.0687 10 11.3787 10 12V14.6667" stroke={color} strokeLinecap="round" strokeLinejoin="round"/>
@@ -53,7 +52,7 @@ function DashboardIcon({color, size}: Partial<Props>){
     )
 }
 
-function PerspectiveIcon({color, size}: Partial<Props>){
+function PerspectiveIcon({color, size}){
     return(
         <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.6667 6.00004V5.21204C12.6667 4.08337 12.6667 3.51871 12.4987 3.06804C12.3651 2.70987 12.156 2.38461 11.8857 2.1143C11.6154 1.84399 11.2902 1.63496 10.932 1.50137C10.4813 1.33337 9.91667 1.33337 8.788 1.33337C6.81267 1.33337 5.82467 1.33337 5.036 1.62737C4.40898 1.86107 3.83955 2.22687 3.36634 2.69997C2.89312 3.17307 2.52718 3.74241 2.29333 4.36937C2 5.15804 2 6.14604 2 8.12137V9.81804C2 11.8647 2 12.8874 2.532 13.598C2.68439 13.8016 2.86511 13.9823 3.06867 14.1347C3.77933 14.6667 4.802 14.6667 6.84867 14.6667H9.66667" stroke={color} strokeLinecap="round" strokeLinejoin="round"/>
@@ -63,7 +62,7 @@ function PerspectiveIcon({color, size}: Partial<Props>){
     )
 }
 
-function TasksIcon({color, size}: Partial<Props>){
+function TasksIcon({color, size}){
     return(
         <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.33333 8C1.33333 5.17133 1.33333 3.75733 2.30933 2.87867C3.28667 2 4.85733 2 8 2C11.1427 2 12.714 2 13.69 2.87867C14.666 3.75733 14.6667 5.172 14.6667 8C14.6667 10.828 14.6667 12.2427 13.69 13.1213C12.7147 14 11.1427 14 8 14C4.85733 14 3.286 14 2.30933 13.1213C1.33267 12.2427 1.33333 10.828 1.33333 8Z" stroke={color} strokeLinecap="round" strokeLinejoin="round"/>
@@ -73,7 +72,7 @@ function TasksIcon({color, size}: Partial<Props>){
     )
 }
 
-function DocumentIcon({color, size}: Partial<Props>){
+function DocumentIcon({color, size}){
     return(
         <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2.33333 6.66671C2.33333 4.15271 2.33333 2.89537 3.16333 2.11471C3.99333 1.33404 5.32867 1.33337 8 1.33337H8.51533C10.6887 1.33337 11.7767 1.33337 12.5313 1.86537C12.7473 2.01737 12.9393 2.19871 13.1013 2.40204C13.6667 3.11271 13.6667 4.13537 13.6667 6.18204V7.87871C13.6667 9.85404 13.6667 10.842 13.354 11.6307C12.8513 12.8994 11.7887 13.8994 10.4407 14.3727C9.60267 14.6667 8.554 14.6667 6.454 14.6667C5.25533 14.6667 4.65533 14.6667 4.17667 14.4987C3.40667 14.228 2.79933 13.6567 2.512 12.932C2.33333 12.4814 2.33333 11.9167 2.33333 10.788V6.66671Z" stroke={color} strokeLinecap="round" strokeLinejoin="round"/>
@@ -84,7 +83,7 @@ function DocumentIcon({color, size}: Partial<Props>){
 }
 
 
-function ReportIcon({color, size}: Partial<Props>){
+function ReportIcon({color, size}){
     return(
         <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_300_83)">
@@ -100,7 +99,7 @@ function ReportIcon({color, size}: Partial<Props>){
     )
 }
 
-function UserRole({size, color}: Partial<Props>){
+function UserRole({size, color}){
     return(
         <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 7.33333C10.7072 7.33333 11.3855 7.05238 11.8856 6.55229C12.3857 6.05219 12.6667 5.37391 12.6667 4.66667C12.6667 3.95942 12.3857 3.28115 11.8856 2.78105C11.3855 2.28095 10.7072 2 10 2M11.3333 9.33333C12.2174 9.33333 13.0652 9.68452 13.6904 10.3096C14.3155 10.9348 14.6667 11.7826 14.6667 12.6667C14.6667 13.0203 14.5262 13.3594 14.2761 13.6095C14.0261 13.8595 13.687 14 13.3333 14H12.3333M8.66667 4.66667C8.66667 5.37391 8.38571 6.05219 7.88562 6.55229C7.38552 7.05238 6.70724 7.33333 6 7.33333C5.29275 7.33333 4.61448 7.05238 4.11438 6.55229C3.61428 6.05219 3.33333 5.37391 3.33333 4.66667C3.33333 3.95942 3.61428 3.28115 4.11438 2.78105C4.61448 2.28095 5.29275 2 6 2C6.70724 2 7.38552 2.28095 7.88562 2.78105C8.38571 3.28115 8.66667 3.95942 8.66667 4.66667ZM7.33333 9.33333H4.66667C3.78261 9.33333 2.93476 9.68452 2.30964 10.3096C1.68452 10.9348 1.33333 11.7826 1.33333 12.6667C1.33333 13.0203 1.47381 13.3594 1.72386 13.6095C1.9739 13.8595 2.31304 14 2.66667 14H9.33333C9.68695 14 10.0261 13.8595 10.2761 13.6095C10.5262 13.3594 10.6667 13.0203 10.6667 12.6667C10.6667 11.7826 10.3155 10.9348 9.69035 10.3096C9.06523 9.68452 8.21739 9.33333 7.33333 9.33333Z" stroke={color} strokeLinecap="round" strokeLinejoin="round"/>
@@ -109,7 +108,7 @@ function UserRole({size, color}: Partial<Props>){
     )
 }
 
-function SearchIcon({size, color}: Partial<Props>){
+function SearchIcon({size, color}){
     return(
         <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_300_94)">
@@ -125,10 +124,59 @@ function SearchIcon({size, color}: Partial<Props>){
     )
 }
 
-function BellIcon({size=0, color}: Partial<Props>){
+function BellIcon({size=0, color}){
     return(
         <svg width={size} height={size - 1} viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.83419 13.1667C5.36486 13.5813 6.06619 13.8333 6.83419 13.8333C7.60219 13.8333 8.30352 13.5813 8.83419 13.1667M0.520858 8.76267C0.378858 9.66467 1.01286 10.2907 1.78886 10.6027C4.76419 11.7993 8.90419 11.7993 11.8795 10.6027C12.6555 10.2907 13.2895 9.66467 13.1475 8.76267C13.0609 8.208 12.6295 7.74667 12.3102 7.296C11.8922 6.698 11.8509 6.04667 11.8502 5.35267C11.8509 2.67333 9.60552 0.5 6.83419 0.5C4.06286 0.5 1.81752 2.67333 1.81752 5.35333C1.81752 6.04667 1.77619 6.69867 1.35752 7.296C1.03886 7.74667 0.608191 8.208 0.520858 8.76267Z" stroke={color} strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+
+    )
+}
+
+function Folder({size, color}){
+    return(
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 7H16.75C18.857 7 19.91 7 20.667 7.506C20.9943 7.72474 21.2753 8.00575 21.494 8.333C22 9.09 22 10.143 22 12.25C22 15.761 22 17.517 21.157 18.778C20.7921 19.3242 20.3232 19.7931 19.777 20.158C18.518 21 16.762 21 13.25 21H12C7.286 21 4.929 21 3.464 19.535C2 18.072 2 15.715 2 11V7.944C2 6.128 2 5.22 2.38 4.538C2.65114 4.05208 3.05208 3.65114 3.538 3.38C4.22 3 5.128 3 6.944 3C8.108 3 8.69 3 9.2 3.191C10.363 3.627 10.843 4.684 11.368 5.733L12 7" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+
+    )
+}
+
+function FolderCheck({size, color}){
+    return(
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 7H16.75C18.857 7 19.91 7 20.667 7.506C20.9943 7.72474 21.2753 8.00575 21.494 8.333C21.98 9.06 22 10.06 22 12M12 7L11.367 5.733C10.842 4.683 10.362 3.627 9.199 3.191C8.69 3 8.108 3 6.944 3C5.128 3 4.22 3 3.538 3.38C3.05208 3.65114 2.65114 4.05208 2.38 4.538C2 5.22 2 6.128 2 7.944V11C2 15.714 2 18.071 3.464 19.535C4.764 20.835 6.768 20.982 10.5 20.998M13 19C13 19 14 19 15 21C15 21 18.177 16 21 15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+
+    )
+}
+
+function DocumentHeart({size, color}){
+    return(
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 22H10.727C7.467 22 5.835 22 4.703 21.202C4.38085 20.9761 4.0929 20.705 3.848 20.397C3 19.331 3 17.797 3 14.727V12.182C3 9.219 3 7.737 3.469 6.554C4.223 4.651 5.817 3.151 7.839 2.441C9.095 2 10.668 2 13.818 2C15.616 2 16.516 2 17.234 2.252C18.389 2.658 19.3 3.515 19.731 4.602C20 5.278 20 6.125 20 7.818V11" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3 12C3 11.116 3.35115 10.2683 3.97621 9.64321C4.60127 9.01815 5.44903 8.667 6.333 8.667C6.999 8.667 7.784 8.783 8.431 8.61C8.71371 8.53392 8.97145 8.38485 9.17838 8.17774C9.38531 7.97064 9.53416 7.71277 9.61 7.43C9.783 6.783 9.667 5.998 9.667 5.332C9.66726 4.44821 10.0185 3.6007 10.6436 2.97586C11.2686 2.35102 12.1162 2 13 2M16.5 13C15.074 13 14.15 13.909 13.058 14.24C12.614 14.374 12.392 14.442 12.302 14.537C12.212 14.632 12.186 14.77 12.133 15.047C11.57 18.016 12.801 20.76 15.738 21.827C16.053 21.943 16.211 22 16.501 22C16.791 22 16.948 21.943 17.264 21.828C20.2 20.76 21.43 18.016 20.867 15.048C20.814 14.77 20.787 14.631 20.698 14.537C20.609 14.443 20.386 14.374 19.942 14.24C18.849 13.909 17.925 13 16.5 13Z" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+
+    )
+}
+
+function DocumentCheck({size, color}){
+    return(
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 18C13 18 14 18 15 20C15 20 18.177 15 21 14" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M11 22H10.727C7.467 22 5.835 22 4.703 21.202C4.38085 20.9761 4.0929 20.705 3.848 20.397C3 19.331 3 17.797 3 14.727V12.182C3 9.219 3 7.737 3.469 6.554C4.223 4.651 5.817 3.151 7.839 2.441C9.095 2 10.668 2 13.818 2C15.616 2 16.516 2 17.234 2.252C18.389 2.658 19.3 3.515 19.731 4.602C20 5.278 20 6.125 20 7.818V10" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3 12C3 11.116 3.35115 10.2683 3.97621 9.64321C4.60127 9.01815 5.44903 8.667 6.333 8.667C6.999 8.667 7.784 8.783 8.431 8.61C8.71371 8.53392 8.97145 8.38485 9.17838 8.17774C9.38531 7.97064 9.53416 7.71277 9.61 7.43C9.783 6.783 9.667 5.998 9.667 5.332C9.66726 4.44821 10.0185 3.6007 10.6436 2.97586C11.2686 2.35102 12.1162 2 13 2" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+
+    )
+}
+
+function DocumentArrow({size, color}){
+    return(
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.5 2H12.773C16.033 2 17.665 2 18.797 2.798C19.121 3.026 19.409 3.298 19.652 3.603C20.5 4.669 20.5 6.203 20.5 9.273V11.818C20.5 14.781 20.5 16.263 20.031 17.446C19.277 19.349 17.683 20.849 15.661 21.559C14.404 22 12.831 22 9.681 22C7.883 22 6.983 22 6.265 21.748C5.11 21.342 4.199 20.485 3.768 19.398C3.5 18.722 3.5 17.875 3.5 16.182V12" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M20.5 12C20.5 12.884 20.1488 13.7317 19.5238 14.3568C18.8987 14.9818 18.051 15.333 17.167 15.333C16.501 15.333 15.716 15.217 15.069 15.39C14.7864 15.466 14.5288 15.6149 14.3218 15.8218C14.1149 16.0288 13.966 16.2864 13.89 16.569C13.717 17.216 13.833 18.001 13.833 18.667C13.833 19.1047 13.7468 19.5381 13.5793 19.9425C13.4118 20.3469 13.1663 20.7143 12.8568 21.0238C12.5473 21.3333 12.1799 21.5788 11.7755 21.7463C11.3711 21.9138 10.9377 22 10.5 22M4.5 4.5C4.992 3.994 6.3 2 7 2M7 2C7.7 2 9.008 3.994 9.5 4.5M7 2V10" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
 
     )

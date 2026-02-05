@@ -1,13 +1,13 @@
-import Sidebar from "./sidebar/Sidebar";
+import {Sidebar} from "@section";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Screen from "./Screen";
 
 export default function App(){
 
-    const route = useSelector((state: any) => state.route.routes);
+    const route = useSelector((state) => state.route.routes);
     const [currentRoute, setCurrentRoute] = useState("home");
-    const routesRef = useRef<string[]>(["home"]);
+    const routesRef = useRef(["home"]);
     const [toggle, setToggle] = useState(true);
 
     
@@ -28,12 +28,14 @@ export default function App(){
     return(
         <main>
             <section 
-                    className={`grid transition-all duration-150 ease-in-out delay-50 
+                    className={`grid transition-all  duration-150 ease-in-out delay-50 
                         ${toggle ? "grid-cols-[minmax(0,1.5fr)_minmax(0,8.5fr)]" : "grid-cols-[minmax(0,0.5fr)_minmax(0,9fr)]"}`
                     }
                 >
-                <Sidebar sidebar={toggle} onToggle={(toggleState: boolean) => setToggle(toggleState)} />
-                <section>
+                <aside>
+                    <Sidebar sidebar={toggle} onToggle={(toggleState) => setToggle(toggleState)} />
+                </aside>
+                <section className="pb-10">
                     <Screen currentRoute={currentRoute} />
                 </section>
             </section>

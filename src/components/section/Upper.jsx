@@ -1,7 +1,7 @@
 import { RippleButton, Dropdown } from "@custom";
 import { FiBell } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
-import Icons from "@data/Icons";
+import Icons from "./Icons";
 
 
 export default function Upper(){
@@ -36,7 +36,7 @@ export default function Upper(){
                         }
                         className="bg-white shadow-lg rounded-b-lg w-full"
                     >
-                        {["home", "Logout", "Close"].map((link: string) => 
+                        {["home", "Logout", "Close"].map((link) => 
                             <RippleButton onClick={() => {}} className="text-base text-[var(--primary)] py-1 px-3">
                                 {link}
                             </RippleButton>

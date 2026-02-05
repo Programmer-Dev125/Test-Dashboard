@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react"
 
-type Props = {
-    ref: any
-}
-
-export default function useObserver({ref}: Props){
+export default function useObserver({ref}){
     
     const [dimensions, setDimensions] = useState({
         width: 0,
@@ -16,7 +12,7 @@ export default function useObserver({ref}: Props){
         if(!ref.current) return;
         
         const resizer = new ResizeObserver((entries) => {
-            const target = entries[0].target as HTMLElement;
+            const target = entries[0].target;
             setDimensions({
                 width: target?.offsetWidth || 0,
                 height: target?.offsetHeight || 0

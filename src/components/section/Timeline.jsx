@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Dropdown, RippleButton } from "@custom";
 import { IoIosArrowDown } from "react-icons/io";
 import { Card } from "@ui";
@@ -6,6 +6,11 @@ import { timelines } from "@data/uiData";
 
 export default function TimeLine(){
     const [date, setDate] = useState(new Date());
+
+    const lastFilledId = useMemo(() => {
+        const filtered = timelines.filter((time) => time.fill);
+        return filtered[filtered.length - 1]?.id || 0;
+    }, [timelines]);
 
     return(
         <Card className="w-[95%] mx-auto flex flex-col gap-12 px-6 py-5">
@@ -20,17 +25,28 @@ export default function TimeLine(){
                     }   
                     className="bg-white shadow-lg rounded-b-lg w-full"
                 >
-                   {["home", "Logout", "Close"].map((link: string) => 
+                   {["home", "Logout", "Close"].map((link) => 
                         <RippleButton onClick={() => {}} className="text-base text-[var(--primary)] py-1 px-3">
                             {link}
                         </RippleButton>
                     )}
                 </Dropdown>
             </div>
-            <div className="relative">
-                <div className="grid grid-cols-6">
-                    {timelines.map(({id, upper, below, fill}: any) => 
-                        <div className="flex flex-col gap-3 items-center" key={id}>
+            <div className="relative flex flex-col gap-[15px]">
+                <div className="grid grid-cols-6 bg-[#F5F8FB] w-full h-[14px] rounded-full">
+                    {timelines.map(({fill, id}) => 
+                        <div 
+                            key={id}
+                            className={`flex justify-center items-center ${fill ? `bg-[var(--success)] h-full w-full ${id === 1 ? "rounded-l-full" : id === lastFilledId ? "rounded-r-full" : ""}` : ""}`}
+                            
+                        >
+                            <div className={`w-[10px] h-[10px] rounded-full ${fill ? "bg-white" : "bg-[var(--danger)]"}`} />
+                        </div>
+                    )}
+                </div>
+                <div className="flex flex-row justify-between items-center">
+                    {timelines.map(({id, upper, below, fill}) => 
+                        <div className={`flex flex-col gap-3 items-center`} key={id}>
                             <p className="text-[var(--sec)] text-sm">{upper}</p>
                             <p className="text-[var(--primary)] font-medium text-sm">{below}</p>
                         </div>

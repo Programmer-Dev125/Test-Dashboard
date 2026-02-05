@@ -1,5 +1,4 @@
-import Upper from "./Upper";
-import TimeLine from "./Timeline";
+import { Upper, TimeLine, HomeStats, Middle } from "@section";
 
 
 export default function Home(){
@@ -7,6 +6,8 @@ export default function Home(){
         <div className="flex flex-col gap-10">
             <Upper />
             <TimeLine />
+            <HomeStats />
+            <Middle />
         </div>
     )
 }

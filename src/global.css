@@ -22,3 +22,10 @@ body {
     background-color: var(--bg-primary);
 }
 
+.scroll-hidden{
+    scrollbar-width: 0;
+}
+
+.scroll-hidden::-webkit-scrollbar{
+    scrollbar-width: 0;
+}
