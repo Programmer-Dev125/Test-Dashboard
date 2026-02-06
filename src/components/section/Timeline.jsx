@@ -38,15 +38,13 @@ export default function TimeLine(){
                         <div 
                             key={id}
                             className={`flex justify-center items-center ${fill ? `bg-[var(--success)] h-full w-full ${id === 1 ? "rounded-l-full" : id === lastFilledId ? "rounded-r-full" : ""}` : ""}`}
-                            
-                        >
-                            <div className={`w-[10px] h-[10px] rounded-full ${fill ? "bg-white" : "bg-[var(--danger)]"}`} />
-                        </div>
+                        />
                     )}
                 </div>
                 <div className="flex flex-row justify-between items-center">
                     {timelines.map(({id, upper, below, fill}) => 
-                        <div className={`flex flex-col gap-3 items-center`} key={id}>
+                        <div className={`flex flex-col gap-3 items-center relative`} key={id}>
+                            <div className={`w-[10px] h-[10px] rounded-full absolute top-[-27px] ${fill ? "bg-white" : "bg-[var(--danger)]"}`} />
                             <p className="text-[var(--sec)] text-sm">{upper}</p>
                             <p className="text-[var(--primary)] font-medium text-sm">{below}</p>
                         </div>

@@ -209,41 +209,261 @@ export const mainData = [
         {
             id: 1,
             title: "Digital Information",
-            types: [ 1, 1, 1 ]
+            types: [ 1, 1, 1 ],
+            parentClassName: "items-end",
+            className: "grid-cols-3" 
+// 
         },
         {
             id: 2,
             title: "Digital Governance",
-            types: [ 1, 1, 2 ]
-        },
+            types: [ 1, 1, 2 ],
+            parentClassName: "items-end",
+            className: "grid-cols-3" 
+// 
+        }, 
         {
             id: 3,
             title: "Enterprise Achitecture",
-            types: [1, 1, 1, 1]
+            types: [1, 1, 1, 1],
+            parentClassName: "items-end",
+            className: "grid-cols-2 gap-y-4"  
+// 
         }
     ], 
     [
         {
             id: 1,
             title: "Digital Culture and Environment",
-            types: [ 1, 2, 1 ]
+            types: [ 1, 2, 1 ],
+            parentClassName: "items-end",
+            className: "grid-cols-3" 
+// 
         },
         {
             id: 2,
             title: " Leadership Development",
-            types: [ 1, 1, 1, 1 ]
+            types: [ 1, 1, 1, 1 ],
+            parentClassName: "items-end",
+            className: "grid-cols-2 gap-y-4" 
+// 
         },
         {
             id: 3,
             title: "Skills & Capacity Building",
-            types: [2, 2, 2]
+            types: [2, 2, 2],
+            parentClassName: "items-end",
+            className: "grid-cols-3" 
+// 
         }
     ],
     [
         {
             id: 1,
             title: "Business Processes",
-            types: [1, 2, 2, 1]
+            types: [1, 2, 2, 1],
+            parentClassName: "items-center",
+            className: "grid-cols-2 gap-y-4 " 
         }
+    ],
+    [
+        {
+            id: 1,
+            title: "Risk Management",
+            types: [1, 1, 1, 1, 1],
+            parentClassName: "items-center",
+            className: "grid-cols-2 gap-y-4" 
+        },
+        {
+            id: 2,
+            title: "Business Continuity",
+            types: [1, 5, 5, 1, 1, 5, 1],
+            parentClassName: "items-center",
+            className: "grid-cols-2 gap-y-4" 
+        },
+    ],
+    [
+        {
+            id: 1,
+            title: "Support Systems",
+            types: [3, 1, 1, 1, 1],
+            parentClassName: "items-end",
+            className: "grid-cols-3 gap-y-4"
+        },
+// 
+        {
+            id: 2,
+            title: "IT Infrastructure",
+            types: [1, 1, 1, 1, 3, 1, 1],
+            parentClassName: "items-center",
+            className: "grid-cols-3 gap-y-2 py-2"
+        },
+        {
+            id: 3,
+            title: " Cloud Infrastructure",
+            types: [1, 1, 3],
+            parentClassName: "items-end",
+            className: "grid-cols-3"
+        },
+// 
+    ],
+    [
+        {
+            id: 1,
+            title: "Governance Platforms",
+            types: [1, 1, 1, 5, 1, 1, 1, 1, 1],
+            parentClassName: "items-center",
+            className: "grid-cols-2 gap-y-3"
+        }
+    ],
+    [
+        {
+            id: 1,
+            title: "Service Quality",
+            types: [1, 1, 1],
+            parentClassName: "items-center",
+            className: "grid-cols-2 gap-y-4"
+        },
+        {
+            id: 2, 
+            title: "Digital Channels",
+            types: [1, 1, 1, 1],
+            parentClassName: "items-center",
+            className: "grid-cols-2 gap-y-4"
+        }
+    ],
+    [
+        {
+            id: 1,
+            title: "User Engagement",
+            types: [1, 2, 2, 2],
+            parentClassName: "items-end",
+            className: "grid-cols-3 gap-y-3"
+        },
+// 
+        {
+            id: 2,
+            title: "User Relationship",
+            types: [1, 2, 2],
+            parentClassName: "items-end",
+            className: "grid-cols-3"
+        },
+// 
+        {
+            id: 3,
+            title: "User Experience",
+            types: [1, 2, 1, 2, 1],
+            parentClassName: "items-center",
+            className: "grid-cols-3 gap-y-3"
+// 
+        }
+    ],
+    [
+        {
+            id: 1,
+            title: "Data Governance",
+            types: [1, 2, 2],
+            parentClassName: "items-end",
+            className: "grid-cols-3 gap-y-3"
+        },
+// 
+        {
+            id: 2,
+            title: "Data Usage & Availability",
+            types: [1, 2, 2],
+            parentClassName: "items-end",
+            className: "grid-cols-3"
+        },
+// 
+        {
+            id: 3,
+            title: "Open Data",
+            types: [1, 1, 2],
+            parentClassName: "items-end",
+            className: "grid-cols-3"
+        }
+// 
+    ],
+    [
+        {
+            id: 1,
+            title: "Innovation",
+            types: [4, 4, 4, 4],
+            parentClassName: "items-center",
+            className: "grid-cols-2 gap-y-4"
+        },
+        {
+            id: 2,
+            title: "Creating Solutions",
+            types: [2, 4],
+            parentClassName: "items-end h-[80%]",
+            className: "grid-cols-2"
+        },
     ]
+]
+
+export const leaders = [
+    {
+        id: 1,
+        name: "Ahmed Al-Ali",
+        title: "Strategy Perspective",
+        percentage: "96%"
+    },
+    {
+        id: 2,
+        name: "Ahmed Al-Ali",
+        title: "Strategy Perspective",
+        percentage: "96%"
+    },
+    {
+        id: 3,
+        name: "Ahmed Al-Ali",
+        title: "Strategy Perspective",
+        percentage: "96%"
+    },
+]
+
+export const activties = [
+    {
+        id: 1,
+        text: "Document “Strategy_Review.pdf” was uploaded by Ahmed Khaled",
+        time: "5 Mins Ago"
+    },
+    {
+        id: 2,
+        text: "Document “Strategy_Review.pdf” was uploaded by Ahmed Khaled",
+        time: "5 Mins Ago"
+    },
+    {
+        id: 3,
+        text: "Document “Strategy_Review.pdf” was uploaded by Ahmed Khaled",
+        time: "5 Mins Ago"
+    },
+]
+
+export const persData = [
+    {
+        id: 1,
+        title: "Total Evidence",
+        final: 4,
+        icon: "docLayer"
+    },
+    {
+        id: 2,
+        title: "Under Review Evidence",
+        final: 3,
+        icon: "docSearch"
+    },
+    {
+        id: 1,
+        title: "In Progress Evidence",
+        final: 2,
+        icon: "docRightArrow"
+    },
+    {
+        id: 1,
+        title: "Completed Evidence",
+        final: 1,
+        icon: "docBan"
+    },
 ]

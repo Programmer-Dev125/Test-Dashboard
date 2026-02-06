@@ -14,6 +14,7 @@
     --rp: rgba(0, 0, 0, 0.2);
     --card-bd: #E0E8ED;
     --bg-primary: #F5F8FA;
+    --other: #F5F8FB;
 }
 
 
@@ -28,4 +29,15 @@ body {
 
 .scroll-hidden::-webkit-scrollbar{
     scrollbar-width: 0;
+}
+
+@keyframes dot {
+    from {
+        opacity: 0.5;
+        scale: 0.5
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
 }

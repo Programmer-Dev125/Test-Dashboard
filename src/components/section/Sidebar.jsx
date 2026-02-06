@@ -41,7 +41,7 @@ export default function Sidebar({onToggle, sidebar}){
                             <p 
                                 className={`
                                     ${currentRoute === link.link ? "text-white" : "text-[var(--dim)]"} 
-                                    ${showLinks ? "block" : "hidden"} text-sm font-medium transition-discrete`
+                                    ${showLinks ? "block" : "hidden"} text-xs xl:text-sm font-medium transition-discrete`
                                 }
                             >
                                 {link.title}

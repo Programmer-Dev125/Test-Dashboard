@@ -1,3 +1,4 @@
+import { HomeScoreRow } from "@/components/section";
 import { Upper, TimeLine, HomeStats, Middle } from "@section";
 
 
@@ -8,6 +9,7 @@ export default function Home(){
             <TimeLine />
             <HomeStats />
             <Middle />
+            <HomeScoreRow />
         </div>
     )
 }

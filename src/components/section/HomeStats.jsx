@@ -6,7 +6,7 @@ import { Card } from "@ui";
 export default function HomeStats(){
 
     return(
-        <div className="grid grid-cols-6 w-[95%] mx-auto gap-5">
+        <div className="grid grid-cols-5 xl:grid-cols-6 max-[1400px]:gap-2 w-[95%] mx-auto gap-5">
             <Card className="flex flex-row justify-between items-start p-3">
                 <div className="flex flex-col gap-3">
                     <TextGenerator 

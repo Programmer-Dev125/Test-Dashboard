@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import useObserver from "@hooks/useObserver";
 
-export default function RippleButton({color="var(--rp)", yPlus=0, xPlus=0, onClick, radii=0, className, children, style, parentClassName}){
+export default function RippleButton({color="var(--rp)", yPlus=0, xPlus=0, onClick, radii=0, className, children, style, parentClassName, onDimensions}){
     const ref = useRef(null);
     const {width, height} = useObserver({ref});
     const [animate, setAnimate] = useState(false);
+
+    useEffect(() => {
+        onDimensions?.(width, height);
+    }, [width, height]);
 
     const handleStart = () => {
         setAnimate(true);
@@ -13,10 +17,6 @@ export default function RippleButton({color="var(--rp)", yPlus=0, xPlus=0, onCli
             setAnimate(false);
         }, 200);
     }
-
-    useEffect(() => {
-        console.log(`width: ${width}, height: ${height}`);
-    }, [width,height]);
 
     return(
         <div className={`relative ${parentClassName || ""}`}>

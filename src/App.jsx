@@ -15,6 +15,7 @@ export default function App(){
     useEffect(() => {
         routesRef.current = route;
         setCurrentRoute(route[route.length - 1]);
+        window.scrollTo({top: 0, behavior: "instant"});
     }, [route]);
 
 

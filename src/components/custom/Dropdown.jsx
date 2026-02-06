@@ -46,7 +46,7 @@ export default function Dropdown({Trigger, className, parentClassName, children}
             </div>
             <div 
                 ref={childrenRef}
-                onClick={(e) => e.stopPropagation()}
+                // onClick={(e) => e.stopPropagation()}
                 className={`${className || ""} absolute dropdown ${show ? "pointer-events-auto" : "pointer-events-none"}`} 
                 style={{ left: 0, top: triggerHeight, height: show ? contentHeight : 0, transition: "height 200ms ease-in-out", overflow: "hidden", zIndex: 98 }}
             > 

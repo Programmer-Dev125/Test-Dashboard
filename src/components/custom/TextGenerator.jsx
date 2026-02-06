@@ -31,7 +31,7 @@ export default function TextGenerator({final, Node, duration=50, onPrinted}){
         return () => {
             if(timerRef.current) clearTimeout(timerRef.current);
         }
-    }, []);
+    }, [final]);
 
     return <Node 
             value={value}
